@@ -300,6 +300,7 @@
                       class="my-calendar bo-rad-10 sizefull txt10 p-l-20"
                       type="text"
                       name="date"
+                      id="book_date"
                     />
                     <i
                       class="btn-calendar fa fa-calendar ab-r-m hov-pointer m-r-18"
@@ -314,7 +315,7 @@
 
                   <div class="wrap-inputtime size12 bo2 bo-rad-10 m-t-3 m-b-23">
                     <!-- Select2 -->
-                    <select class="selection-1" name="time">
+                    <select class="selection-1" name="time" id="bood_time">
                       <option>9:00</option>
                       <option>9:30</option>
                       <option>10:00</option>
@@ -346,7 +347,7 @@
                     class="wrap-inputpeople size12 bo2 bo-rad-10 m-t-3 m-b-23"
                   >
                     <!-- Select2 -->
-                    <select class="selection-1" name="people">
+                    <select class="selection-1" name="people" id="book_people">
                       <option>1 person</option>
                       <option>2 people</option>
                       <option>3 people</option>
@@ -375,6 +376,7 @@
                       type="text"
                       name="name"
                       placeholder="Name"
+                      id="book_name"
                       required
                     />
                   </div>
@@ -392,6 +394,7 @@
                       type="text"
                       name="phone"
                       placeholder="Phone"
+                      id="book_phone"
                       required
                     />
                   </div>
@@ -409,6 +412,7 @@
                       type="text"
                       name="email"
                       placeholder="Email"
+                      id="book_email"
                       required
                     />
                   </div>
@@ -417,10 +421,7 @@
               <div class="food_list">
                 <div class="list_heading text-danger mb-2">Your list order</div>
                 <div id="food_list">
-                  <div class="food_item d-flex align-items-center">
-                    <span class="text-uppercase mr-2">name</span>
-                    <div class="btn_remove_food btn btn-danger" value=""><i class="fa fa-remove"></i></div>
-                  </div>
+                  
                 </div>
               </div>
               <div class="wrap-btn-booking flex-c-m m-t-6">

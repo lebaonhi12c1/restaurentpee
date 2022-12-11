@@ -1,5 +1,4 @@
 $(document).ready(function () {
-    sessionStorage.setItem('arrayfood','')
     $('#menu_food').html('Loading ....');
     async function  handlefood(){
         await $.ajax({
@@ -10,7 +9,7 @@ $(document).ready(function () {
                     return `<div class="col-md-8 col-lg-6 m-l-r-auto">
                     <div class="blo3 flex-w flex-col-l-sm m-b-30">
                         <div class="pic-blo3 size20 bo-rad-10 hov-img-zoom m-r-28">
-                            <a href="#"><img src="" alt="IMG-MENU"></a>
+                            <a href="#"><img src="http://localhost:8080/${item.Ma_so}.png" alt="IMG-MENU"></a>
                         </div>
     
                         <div class="text-blo3 size21 flex-col-l-m">
@@ -25,7 +24,8 @@ $(document).ready(function () {
                             <span class="txt22 m-t-20">
                                 ${item.Don_gia_Ban} vnd
                             </span>
-                            <button class="btn_primary_red btn_add_menu align-self-end" value='${JSON.stringify(item)+"$$"}'>Add</button>
+                            <span class="nofication_add_${item.Ma_so}"></span>
+                            <button class="btn_primary_red btn_add_menu align-self-end" value='${JSON.stringify(item)}' data='${item.Ma_so}'>Add</button>
                         </div>
                     </div>
             </div>`
@@ -35,7 +35,18 @@ $(document).ready(function () {
         $('.btn_add_menu').each(function (index, element) {
             $(element).click(function (e) { 
                 e.preventDefault();
-                sessionStorage.setItem('arrayfood',sessionStorage.getItem('arrayfood').concat($(element).attr('value')))
+                if(!sessionStorage.getItem('arrayfood')){
+                    sessionStorage.setItem('arrayfood',JSON.stringify([JSON.parse($(element).attr('value'))]))
+                }
+                else{
+                    console.log(typeof(JSON.parse(sessionStorage.getItem('arrayfood'))))
+                    sessionStorage.setItem('arrayfood',JSON.stringify([...JSON.parse(sessionStorage.getItem('arrayfood')),JSON.parse($(element).attr('value'))]))
+                }
+                $(`.nofication_add_${$(element).attr('data')}`).text('Added !!');
+                $(`.nofication_add_${$(element).attr('data')}`).css('color','var(--primary_cryan_hover')
+                setTimeout(() => {
+                    $(`.nofication_add_${$(element).attr('data')}`).text('');
+                }, 700);
             });
         });
     }

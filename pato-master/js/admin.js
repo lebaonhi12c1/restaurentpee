@@ -70,3 +70,60 @@ $(document).ready(function () {
     });
 
 });
+
+
+$(document).ready(function () {
+    $('.btn_add_user').click(function (e) { 
+        e.preventDefault();
+        var register_password = $('#admin_add_user_password').val();
+        var pre_register_password = $('#admin_add_user_prepassword').val();
+        var register_email = $('#admin_add_user_email').val();
+        if (
+            register_password === "" ||
+            pre_register_password === "" ||
+            register_email === ""
+          ) {
+            $(".add_user_nofication").html(
+              "Email, password, and password reentry must not be blank !"
+            );
+            $(".add_user_nofication").css({
+              color: "var(--primary_red)",
+            });
+          } else if (register_password !== pre_register_password) {
+            $(".add_user_nofication").html(
+              "Password and password reentry not match !"
+            );
+            $(".add_user_nofication").css({
+              color: "var(--primary_red)",
+            });
+          }
+          else{
+              ////ban cai action + payload api /// them hieu ung 
+              var user_register ={
+                Ten_Dang_nhap: register_email,
+                Mat_khau: register_password,
+                isAdmin: $('#admin_add_user_isadmin').is(':checked'),
+              }
+              console.log(user_register) 
+            //   $.ajax({
+            //     type: "POST",
+            //     url: "http://localhost:8080/ThemNguoidung",
+            //     data: JSON.stringify(user_register),
+            //     dataType: 'json',
+            //     success: function (response) {
+            //       console.log(response)
+            //       $(".add_user_nofication").html(
+            //         "Register successfully !"
+            //       );
+            //     }
+            //   });
+              ///---------------------
+              $(".add_user_nofication").html(
+                "Loading..."
+              );
+              $(".add_user_nofication").css({
+                  color: "var(--primary_cryan_hover)",
+              });
+            }
+    });
+});

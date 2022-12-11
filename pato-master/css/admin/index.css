@@ -431,3 +431,11 @@
     display: block;
 }
 /*admin*/
+
+
+.add_user_form{
+    border: 1px solid #ccc;
+    padding:20px 10px;
+    width: 50%;
+    border-radius: 4px;
+}
