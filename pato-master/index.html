@@ -216,12 +216,12 @@
           />
         </div>
         <div class="profile_header_title">
-          <h2 class="header_title">Username</h2>
+          <h2 class="header_title" id="heading_profile_user">Username</h2>
           <span class="header_title_sub_1"> 
-            <span class="title_email"> admin@gmail.com </span>
-            <span class="title_email_sub"> - Administrator </span>
+            <span class="title_email" id="email_profile_user"> admin@gmail.com </span>
+            <span class="title_email_sub"> - User </span>
           </span>
-          <span class="header_title_sub_2"> Admin profile </span>
+          <span class="header_title_sub_2"> User profile </span>
           <span class="profile_chosse_avaer">
             <label
               for="profile_set_avatar"
@@ -240,7 +240,7 @@
       </div>
       <div class="profile_body">
         <div class="profile_body_heading">Account</div>
-        <div class="profile_info">
+        <div class="profile_info_user">
           <div class="profile_info_item">
             <label for="username" class="profile_info_lable"
               >Username</label
@@ -248,43 +248,43 @@
             <input
               type="text"
               name="username"
-              id="username"
+              id="username_user_profile"
               class="profile_inp"
               value="Username"
             />
           </div>
           <div class="profile_info_item">
             <label for="username" class="profile_info_lable"
-              >Username</label
+              >Password</label
             >
             <input
               type="text"
               name="username"
-              id="username"
+              id="password_profile_user"
               class="profile_inp"
               value="Username"
             />
           </div>
           <div class="profile_info_item">
             <label for="username" class="profile_info_lable"
-              >Username</label
+              >Phone</label
             >
             <input
               type="text"
               name="username"
-              id="username"
+              id="phone_profile_user"
               class="profile_inp"
               value="Username"
             />
           </div>
           <div class="profile_info_item">
             <label for="username" class="profile_info_lable"
-              >Username</label
+              >Name</label
             >
             <input
               type="text"
               name="username"
-              id="username"
+              id="name_profile_user"
               class="profile_inp"
               value="Username"
             />
@@ -292,8 +292,9 @@
           <div class="profile_info_item">
             <label for="username" class="profile_info_lable"></label>
             <div class="profile_controls">
-              <button class="btn_primary">Update</button>
+              <button class="btn_primary" id="btn_update_profile_user">Update</button>
               <button class="btn_primary_red" id="btn_close_profile_modal">Cancel</button>
+              <div id="update_profile_nofication" class="text-info btn_active_primary"></div>
             </div>
           </div>
         </div>

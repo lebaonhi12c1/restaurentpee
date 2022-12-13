@@ -439,3 +439,15 @@
     width: 50%;
     border-radius: 4px;
 }
+.proccess_inp{
+    width: 100%;
+    border: 1px solid #333;
+}
+.admin_logout{
+    cursor: pointer;
+    color: var(--primary_cryan)
+}
+.admin_logout:hover{
+    color: var(--primary_cryan_hover);
+    text-decoration: underline;
+}

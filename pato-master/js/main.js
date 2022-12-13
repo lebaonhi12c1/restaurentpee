@@ -262,6 +262,7 @@ $(document).ready(function () {
         var user_register ={
           Ten_Dang_nhap: register_email,
           Mat_khau: register_password,
+          Ma_so: register_email,
           isAdmin: false,
         }
         $.ajax({
@@ -335,8 +336,7 @@ $(document).ready(function () {
               console.log(response);
               var user = response.filter(function(item){
                 return item.Ten_Dang_nhap === email_login && item.Mat_khau === password_login
-              })
-              console.log(user)
+              })[0]
               if(user){
                 $(".login_nofication").html(
                   "Login Successfully !"
@@ -346,9 +346,11 @@ $(document).ready(function () {
                 });
                 sessionStorage.setItem('isLogin',true)
                 sessionStorage.setItem('user',JSON.stringify(user))
-                if(user.isAdmin){
+                if(user.isAdmin == true){
+      
                   document.location.href = 'http://127.0.0.1:5500/pato-master/admin.html'
                 }else{
+
                   document.location.href = 'http://127.0.0.1:5500/pato-master/index.html'
                 }
               }else{
@@ -368,7 +370,6 @@ $(document).ready(function () {
 
 /// control user loing log out
 $(document).ready(function () {
-  console.log(sessionStorage.getItem('user'))
   if(sessionStorage.getItem('isLogin')){
     $('.user_control').css('display','block');
     $('#login_icon').css('display','none');
@@ -383,6 +384,41 @@ $(document).ready(function () {
 
 ////user settting + profile
 $(document).ready(function () {
-  var userprofile = JSON.parse(sessionStorage.getItem('user'))[0]
+  function pushInfoProfile(user){
+    $('#heading_profile_user').text(user.Ten_Dang_nhap);
+    $('#email_profile_user').text(user.Ten_Dang_nhap);
+    $('#username_user_profile').val(user.Ten_Dang_nhap);
+    $('#password_profile_user').val(user.Mat_khau);
+    $('#phone_profile_user').val(user.Sdt);
+    $('#name_profile_user').val(user.Ten);
+  }
+  var userprofile = JSON.parse(sessionStorage.getItem('user'))
   $('.user_setting_heading').html(userprofile.Ten_Dang_nhap);
+  pushInfoProfile(userprofile)
+  $('#btn_update_profile_user').click(function (e) { 
+    e.preventDefault();
+    var user = {
+      Ma_so: userprofile.Ma_so,
+      Ten_Dang_nhap: $('#username_user_profile').val(),
+      Mat_khau: $('#password_profile_user').val(),
+      Ten: $('#name_profile_user').val(),
+      Sdt: $('#phone_profile_user').val()
+      }
+      $.ajax({
+          type: "POST",
+          url: "http://localhost:8080/SuaNguoidung",
+          data: JSON.stringify(user),
+          dataType: "json",
+          success: function (response) {
+              console.log(response)
+              sessionStorage.setItem('user',JSON.stringify(user))
+              console.log(sessionStorage.getItem('user'))
+              pushInfoProfile(user)
+              $('#update_profile_nofication').text('Update Successfully !!');
+              setTimeout(() => {
+                $('#update_profile_nofication').text('');
+              }, 700);
+          }
+      });
+  });
 });

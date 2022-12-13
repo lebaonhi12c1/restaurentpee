@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Reservation</title>
+    <title>Thanh Toán</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!--===============================================================================================-->
@@ -66,7 +66,8 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="css/util.css" />
     <link rel="stylesheet" type="text/css" href="css/main.css" />
-    <link rel="stylesheet" href="css/booktable/index.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/payment/index.css">
     <!--===============================================================================================-->
   </head>
   <body class="animsition">
@@ -270,172 +271,280 @@
       class="bg-title-page flex-c-m p-t-160 p-b-80 p-l-15 p-r-15"
       style="background-image: url(images/bg-title-page-02.jpg)"
     >
-      <h2 class="tit6 t-center">Reservation</h2>
+      <h2 class="tit6 t-center">
+        <i class="fa fa-paypal" aria-hidden="true">PAYPAL</i>
+      </h2>
     </section>
 
-    <!-- Reservation -->
-    <section class="section-reservation bg1-pattern p-t-100 p-b-113">
+    <!-- Contact form -->
+    <section class="section-contact bg1-pattern p-t-90 p-b-113">
       <div class="container">
-        <div class="row">
-          <div class="col-lg-12 p-b-30">
-            <div class="t-center">
-              <span class="tit2 t-center"> Reservation </span>
+        
+    <marquee id="marq" scrollamount="3" direction="up" loop="50" scrolldelay="0" onmouseover="this.stop()" onmouseout="this.start()">
+      <a href="#"><img src="./images/blog-10.jpg" title="Ghi chú cho ảnh" width="230" height="50"/></a>
+      <a href="#"><img src="./images/blog-04.jpg" title="Ghi chú cho ảnh" width="230" height="50"/></a>
+      <a href="#"><img src="./images/blog-09.jpg" title="Ghi chú cho ảnh" width="230" height="50"/></a>
+      <a href="#"><img src="./images/blog-08.jpg" title="Ghi chú cho ảnh" width="230" height="50"/></a>
+      <a href="#"><img src="./images/blog-07.jpg" title="Ghi chú cho ảnh" width="233" height="50"/></a>
+      <!-- <a href="#"><img src="./images/blog-05.jpg" title="Ghi chú cho ảnh" width="200" height="100"/> </a> -->
+    </marquee>
+      <font ><marquee direction="left" style="background:rgb(224, 231, 19)"> <i class="fa 
+        fa-star-o" aria-hidden="true"></i> Sự kiện truy ân khách hàng giảm 30% cho mội đơn hàng từ ngày 12/12 - 22/22 <i class="fa fa-star-o" aria-hidden="true"> </i> || Chân cảm ơn quý khách đã trãi nghiệm dịch vụ của chúng tôi  </marquee></font>
+        <section style="background-color: #eee">
+          <div class="container py-5">
+            <div class="card">
+              <div class="card-body">
+                <div class="row d-flex justify-content-center pb-5">
+                  <div class="col-md-7 col-xl-5 mb-4 mb-md-0">
+                    <div class="py-4 d-flex flex-row">
+                      <h4>
+                        
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                        <b>PEEE</b> |
+                      </h4>
+                      <span class="ps-2"> Pay </span>
+                    </div>
+                    <div id="pay_foods">
+                      <div class="d-flex pt-2">
+                        <div>
+                          <p>
+                            <b
+                              >Hamburgers gà
+                              <span class="text-success"> 25.000đ</span></b
+                            >
+                          </p>
+                        </div>
+                        <div class="ms-auto" style="margin-left: 110px">
+                          <p class="text-primary">
+                            <button class="text-primary ">
+                              <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                Add card
+                            </button>
+                           
+                          </p>
+                        </div>
 
-              <h3 class="tit3 t-center m-b-35 m-t-2">Book table</h3>
+                      </div>
+                      <div
+                        class="rounded d-flex"
+                        style="background-color: #f8f9fa"
+                      >
+                        <div class="p-2">x 1</div>
+                      </div>
+                      <hr />
+                    </div>
+
+                    <div class="pt-2">
+                      <form class="pb-3">
+                        <div class="d-flex flex-row pb-3">
+                          <div class="d-flex align-items-center pe-2">
+                            <input class="payment_inp"
+                              class="form-check-input"
+                              type="radio"
+                              name="radioNoLabel"
+                              id="radioNoLabel1"
+                              value=""
+                              aria-label="..."
+                              checked
+                            />
+                          </div>
+                          <div
+                            class="rounded border d-flex w-100 p-3 align-items-center"
+                          >
+                            <p class="mb-0">
+                              <i class="fa fa-cc-visa" aria-hidden="true"></i>
+                              Visa Debit Card
+                            </p>
+                            <div class="ms-auto">************3456</div>
+                          </div>
+                        </div>
+
+                        <div class="d-flex flex-row">
+                          <div class="d-flex align-items-center pe-2">
+                            <input
+                              class="form-check-input"
+                              type="radio"
+                              name="radioNoLabel"
+                              id="radioNoLabel2"
+                              value=""
+                              aria-label="..."
+                            />
+                          </div>
+                          <div
+                            class="rounded border d-flex w-100 p-3 align-items-center"
+                          >
+                            <p class="mb-0">
+                              <i
+                                class="fa fa-cc-mastercard"
+                                aria-hidden="true"
+                              ></i>
+                              Mastercard Office
+                            </p>
+                            <div class="ms-auto">************1038</div>
+                          </div>
+                        </div>
+                      </form>
+                      <input
+                        type="button"
+                        value="Tiến hành thanh toán"
+                        class="btn btn-primary btn-block btn-lg"
+                        id="btn_open_payment"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-md-5 col-xl-4 offset-xl-1">
+                    <div class="py-4 d-flex justify-content-end">
+                      <h6>
+                        <a href="index.html">Cancel and return to website</a>
+                      </h6>
+                    </div>
+                    <div
+                      class="rounded d-flex flex-column p-2"
+                      style="background-color: #f8f9fa"
+                    >
+                      <div class="p-2 me-3">
+                        <h4>Tóm tắt đơn hàng</h4>
+                      </div>
+                      <div class="p-2 d-flex">
+                        <div class="col-8">Ngày</div>
+                        <div class="ms-auto" id="pay_date">12/12/2022</div>
+                      </div>
+                      <div class="p-2 d-flex">
+                        <div class="col-8">Mặt hàng</div>
+                        <div class="ms-auto" id="pay_food_list">Hamburgers Gà, Hamburger Bò</div>
+                      </div>
+                      <div class="p-2 d-flex">
+                        <div class="col-8">Số lượng món</div>
+                        <div class="ms-auto" id="pay_food_quality">x2</div>
+                      </div>
+                      <div class="border-top px-2 mx-2"></div>
+                      <div class="border-top px-2 mx-2"></div>
+                      <div class="p-2 d-flex pt-3">
+                        <div class="col-8">Tổng cộng</div>
+                        <div class="ms-auto" id="pay_total"><b>60.000đ</b></div>
+                      </div>
+
+                      <div class="p-2 d-flex">
+                        <div class="col-8">
+                          Sau Trả trước
+                          <span class="fa fa-question-circle text-dark"></span>
+                        </div>
+                        <div class="ms-auto" id="pay_order"><b>$7.500đ</b></div>
+                      </div>
+                      <div class="border-top px-2 mx-2"></div>
+                      <div class="p-2 d-flex pt-3">
+                        <div class="col-8"><b>Trả trước</b></div>
+                        <div class="ms-auto">
+                          <b class="text-success" id="pay_total_price">67.500đ</b>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-
-            <form
-              class="wrap-form-reservation size22 m-l-r-auto"
-              id="booktable_form"
-            >
-              <div class="row">
-                <div class="col-md-4">
-                  <!-- Date -->
-                  <span class="txt9"> Date </span>
-
-                  <div
-                    class="wrap-inputdate pos-relative txt10 size12 bo2 bo-rad-10 m-t-3 m-b-23"
-                  >
-                    <input type="date" name="" id="book_date">
-                  </div>
-                </div>
-
-                <div class="col-md-4">
-                  <!-- Time -->
-                  <span class="txt9"> Time </span>
-
-                  <div class="wrap-inputtime size12 bo2 bo-rad-10 m-t-3 m-b-23">
-                    <!-- Select2 -->
-                    <input type="time" name="" id="book_time">
-                </div>
-
-                <div class="col-md-4">
-                  <!-- People -->
-                  <span class="txt9"> People </span>
-
-                  <div
-                    class="wrap-inputpeople size12 bo2 bo-rad-10 m-t-3 m-b-23"
-                  >
-                    <!-- Select2 -->
-                    <select class="selection-1" name="people" id="book_people">
-                      <option>1 person</option>
-                      <option>2 people</option>
-                      <option>3 people</option>
-                      <option>4 people</option>
-                      <option>5 people</option>
-                      <option>6 people</option>
-                      <option>7 people</option>
-                      <option>8 people</option>
-                      <option>9 people</option>
-                      <option>10 people</option>
-                      <option>11 people</option>
-                      <option>12 people</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-md-4">
-                  <!-- Name -->
-                  <span class="txt9"> Name </span>
-
-                  <div class="wrap-inputname size12 bo2 bo-rad-10 m-t-3 m-b-23">
-                    <input
-                      class="bo-rad-10 sizefull txt10 p-l-20"
-                      type="text"
-                      name="name"
-                      placeholder="Name"
-                      id="book_name"
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div class="col-md-4">
-                  <!-- Phone -->
-                  <span class="txt9"> Phone </span>
-
-                  <div
-                    class="wrap-inputphone size12 bo2 bo-rad-10 m-t-3 m-b-23"
-                  >
-                    <input
-                      class="bo-rad-10 sizefull txt10 p-l-20"
-                      type="text"
-                      name="phone"
-                      placeholder="Phone"
-                      id="book_phone"
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div class="col-md-4">
-                  <!-- Email -->
-                  <span class="txt9"> Email </span>
-
-                  <div
-                    class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23"
-                  >
-                    <input
-                      class="bo-rad-10 sizefull txt10 p-l-20"
-                      type="text"
-                      name="email"
-                      placeholder="Email"
-                      id="book_email"
-                      required
-                    />
-                  </div>
-                </div>
-              </div>
-              <div class="food_list">
-                <div class="list_heading text-danger mb-2">Your list order</div>
-                <div id="food_list">
-                  
-                </div>
-              </div>
-              <div class="wrap-btn-booking flex-c-m m-t-6">
-                <!-- Button3 -->
-                <button
-                  type="submit"
-                  class="btn3 flex-c-m size13 txt11 trans-0-4"
-                  id="btn_submit_booktable"
-                >
-                  Book Table
-                </button>
-              </div>
-            </form>
           </div>
-        </div>
+        </section>
+        <div class="row p-t-135">
+          <div class="col-sm-8 col-md-4 col-lg-4 m-l-r-auto p-t-30">
+            <div class="dis-flex m-l-23">
+              <div class="p-r-40 p-t-6">
+                <img src="images/icons/map-icon.png" alt="IMG-ICON" />
+              </div>
+              <div class="flex-col-l">
+                <span class="txt5 p-b-10"> Location </span>
 
-        <div class="info-reservation flex-w p-t-80">
-          <div class="size23 w-full-md p-t-40 p-r-30 p-r-0-md">
-            <h4 class="txt5 m-b-18">Reserve by Phone</h4>
-
-            <p class="size25">
-              Donec quis euismod purus. Donec feugiat ligula rhoncus, varius
-              nisl sed, tincidunt lectus.
-              <span class="txt25">Nulla vulputate</span>
-              , lectus vel volutpat efficitur, orci
-              <span class="txt25">lacus sodales</span>
-              sem, sit amet quam:
-              <span class="txt24">(001) 345 6889</span>
-            </p>
+                <span class="txt23 size38">
+                  1212 Phạm Thế Hiển, phường 5, Quận 8, Thành phố Hồ Chí Minh
+                </span>
+              </div>
+            </div>
           </div>
 
-          <div class="size24 w-full-md p-t-40">
-            <h4 class="txt5 m-b-18">For Event Booking</h4>
+          <div class="col-sm-8 col-md-3 col-lg-4 m-l-r-auto p-t-30">
+            <div class="dis-flex m-l-23">
+              <div class="p-r-40 p-t-6">
+                <img src="images/icons/phone-icon.png" alt="IMG-ICON" />
+              </div>
 
-            <p class="size26">
-              Donec feugiat ligula rhoncus:
-              <span class="txt24">(001) 345 6889</span>
-              , varius nisl sed, tinci-dunt lectus sodales sem.
-            </p>
+              <div class="flex-col-l">
+                <span class="txt5 p-b-10"> Call Us </span>
+
+                <span class="txt23 size38"> (+84) 355213825 </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-8 col-md-5 col-lg-4 m-l-r-auto p-t-30">
+            <div class="dis-flex m-l-23">
+              <div class="p-r-40 p-t-6">
+                <img src="images/icons/clock-icon.png" alt="IMG-ICON" />
+              </div>
+
+              <div class="flex-col-l">
+                <span class="txt5 p-b-10"> Opening Hours </span>
+
+                <span class="txt23 size38">
+                  09:30 AM – 11:00 PM <br />Every Day
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
-
+    <div class="payment_modal">
+      <div class="payment_content">
+        <h2 class="payment_heading text-center">Payment info</h2>
+        <div class="payment_content_item">
+          <label for="name" class="payment_title">Name</label>
+          <input class="payment_inp" type="text" name="name" id="payment_name">
+        </div>
+        <div class="payment_content_item">
+          <label for="phone" class="payment_title">Phone</label>
+          <input class="payment_inp" type="text" name="phone" id="payment_phone">
+        </div>
+        <div class="payment_content_item">
+          <label for="email" class="payment_title">Email</label>
+          <input class="payment_inp" type="text" name="email" id="payment_email">
+        </div>
+        <div class="payment_content_item">
+          <label for="date" class="payment_title">Date</label>
+          <input class="payment_inp" type="date" name="date" id="payment_date">
+        </div>
+        <div class="payment_content_item">
+          <label for="time" class="payment_title">Time</label>
+          <input class="payment_inp" type="time" name="time" id="payment_time">
+        </div>
+        <div class="payment_content_item">
+          <label for="people" class="payment_title">People</label>
+          <input class="payment_inp" type="text" name="people" id="payment_people">
+        </div>
+        <div class="payment_content_item">
+          <label for="card_name" class="payment_title">Card_name</label>
+          <input class="payment_inp" type="text" name="card_name" id="payment_card_name" placeholder="Type your name of card">
+        </div>
+        <div class="payment_content_item">
+          <label for="card_number" class="payment_title">Card_number</label>
+          <input class="payment_inp" type="text" name="card_number" id="payment_card_number" placeholder="Type your number of card">
+        </div>
+        <div class="payment_content_item">
+          <label for="" class="payment_title">Your food order</label>
+          <div id="payment_food_list">
+            
+          </div>
+        </div>
+        <div class="payment_content_item">
+          <label for="" class="payment_title">Total</label>
+          <div id="payment_total" class="text-info"></div>
+        </div>
+        <div class="payment_controls">
+          <button class="btn_primary" id="btn_pay_payment">Pay</button>
+          <button class="btn_primary_red" id="btn_exit_payment">Cancel</button>
+        </div>
+      </div>
+    </div>
     <!-- Footer -->
     <footer class="bg1">
       <div class="container p-t-40 p-b-70">
@@ -450,7 +559,7 @@
                   class="fa fa-map-marker fs-16 dis-inline-block size19"
                   aria-hidden="true"
                 ></i>
-                8th floor, 379 Hudson St, New York, NY 10018
+                1212 Phạm Thế Hiển, phường 5, Quận 8, Thành phố Hồ Chí Minh
               </li>
 
               <li class="txt14 m-b-14">
@@ -458,7 +567,7 @@
                   class="fa fa-phone fs-16 dis-inline-block size19"
                   aria-hidden="true"
                 ></i>
-                (+1) 96 716 6879
+                (+84) 355213825
               </li>
 
               <li class="txt14 m-b-14">
@@ -657,7 +766,6 @@
     <div id="dropDownSelect1"></div>
 
     <!--===============================================================================================-->
-
     <script
       type="text/javascript"
       src="vendor/jquery/jquery-3.2.1.min.js"
@@ -706,7 +814,10 @@
       src="vendor/lightbox2/js/lightbox.min.js"
     ></script>
     <!--===============================================================================================-->
-    <script src="./js/booktable.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKFWBqlKAGCeS1rMVoaNlwyayu0e0YRes"></script>
+    <script src="js/map-custom.js"></script>
+    <!--===============================================================================================-->
+    <script src="js/payment.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>

@@ -1,0 +1,30 @@
+.payment_modal{
+    position: fixed;
+    display: none;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.4);
+}
+.payment_content{
+    width: 60%;
+    margin: auto;
+    background-color: #fff;
+    padding: 20px;
+    border: 4px solid var(--primary_red);
+    border-radius: 4px;
+}
+.payment_content:hover{
+    border-color: var(--primary_cryan_hover);
+}
+.payment_content_item{
+    margin: 10px 0;
+}
+.payment_title{
+    min-width: 200px;
+}
+.payment_inp{
+    width: 60%;
+}

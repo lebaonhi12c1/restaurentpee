@@ -3,7 +3,7 @@ $(document).ready(function () {
     async function  handlefood(){
         await $.ajax({
             type: "GET",
-            url: "http://localhost:8080/dsFood",
+            url: "http://localhost:8080/dsfood",
             success: function (response) {
                 $('#menu_food').html(response.map(function(item){
                     return `<div class="col-md-8 col-lg-6 m-l-r-auto">

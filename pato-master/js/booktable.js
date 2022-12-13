@@ -20,7 +20,7 @@ $(document).ready(function () {
             email: $('#book_email').val(),
             arrayFood: foods
         }))
-        console.log(sessionStorage.getItem('order'))
+        document.location.href = 'http://127.0.0.1:5500/pato-master/thanhtoan.html'
     });
     $('.btn_remove_food').each(function (index, element) {
         $(element).click(function (e) { 
