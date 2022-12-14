@@ -327,8 +327,6 @@ $(document).ready(function () {
           $(".login_nofication").css({
             color: "var(--primary_cryan_hover)",
           });
-          console.log('that bai')
-          console.log(email_login,password_login);
           $.ajax({
             type: "GET",
             url: "http://localhost:8080/dsNguoidung",

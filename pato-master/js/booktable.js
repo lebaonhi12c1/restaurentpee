@@ -1,7 +1,16 @@
 
 
 $(document).ready(function () {
-    foods = JSON.parse(sessionStorage.getItem('arrayfood'))
+    var foods = JSON.parse(sessionStorage.getItem('arrayfood'))
+    var order = JSON.parse(sessionStorage.getItem('order'))
+    if(order){
+        $('#book_date').val(order.date)
+        $('#book_time').val(order.time)
+        $('#book_people').val(order.people)
+        $('#book_name').val(order.name)
+        $('#book_phone').val(order.phone)
+        $('#book_email').val(order.email)
+    }
     $('#food_list').html(foods.map(function(item){
         return `<div class="food_item d-flex align-items-center mt-3">
         <span class="text-uppercase mr-2">${item.Ten}</span>
@@ -28,15 +37,9 @@ $(document).ready(function () {
             var newfoods = foods.filter(function(item){
                 return item.Ma_so !== JSON.parse($(element).attr('value')).Ma_so
             })
-            foods = newfoods
-            sessionStorage.setItem('arrayfood',JSON.stringify(foods))
+            sessionStorage.setItem('arrayfood',JSON.stringify(newfoods))
             console.log(sessionStorage.getItem('arrayfood'))
-            $('#food_list').html(foods.map(function(item){
-                return `<div class="food_item d-flex align-items-center mt-3">
-                <span class="text-uppercase mr-2">${item.Ten}</span>
-                <div class="btn_remove_food btn btn-danger" value='${JSON.stringify(item)}'><i class="fa fa-remove"></i></div>
-              </div>`
-            }));
+            document.location.href = 'http://127.0.0.1:5500/pato-master/reservation.html'
         });
     });
 });

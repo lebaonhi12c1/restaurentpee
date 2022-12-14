@@ -31,10 +31,10 @@ $(document).ready(function () {
         e.preventDefault();
         $('#user_proccess_modal').css('display','block');
     });
-    $('.btn_open_remove_dinalog').click(function (e) { 
-        e.preventDefault();
-        $('.dinalog_remove').css('display','block');
-    });
+    // $('.btn_open_remove_dinalog').click(function (e) { 
+    //     e.preventDefault();
+    //     $('.dinalog_remove').css('display','block');
+    // });
     $('.cancel_dinalog').click(function (e) { 
         e.preventDefault();
         $('.dinalog_remove').css({'display':'none'});
@@ -73,6 +73,9 @@ $(document).ready(function () {
  
 //user////////
 $(document).ready(function () {
+    function renderUserData(array){
+
+    }
     $.ajax({
         type: "GET",
         url: "http://localhost:8080/dsNguoidung",
@@ -106,12 +109,13 @@ $(document).ready(function () {
             $('.btn_open_remove_dinalog').each(function (index, element) {
                 $(element).click(function (e) { 
                     e.preventDefault();
-                    $('.dinalog_remove').css('display','block');
-                    $('#apply_remove_user').attr('data', $(element).attr('data'));
+                    $('#user_dinalog_remove').css('display','block');
+                    $('#apply_remove_user').attr('data',$(element).attr('data'));
                 });
             });
            
             $('#apply_remove_user').click(function (e) { 
+                console.log($(this).attr('data'))
                 $.ajax({
                     type: "POST",
                     url: "http://localhost:8080/XoaNguoidung",
@@ -119,7 +123,7 @@ $(document).ready(function () {
                     dataType: 'json',
                     success: function (response) {
                         console.log(response)
-                        $('.dinalog_remove').css('display','none');
+                        $('#user_dinalog_remove').css('display','none');
                     }
                 });
             });
@@ -155,6 +159,7 @@ $(document).ready(function () {
                     success: function (response) {
                         console.log(response)
                         $('#user_proccess_modal').css('display','none');
+                        document.location.href('http://127.0.0.1:5500/pato-master/admin.html')
                     }
                 });
             });
@@ -199,10 +204,10 @@ $(document).ready(function () {
                 data: JSON.stringify(user_register),
                 dataType: 'json',
                 success: function (response) {
-                  console.log(response)
                   $(".add_user_nofication").html(
-                    "Register successfully !"
+                    "Create successfully !"
                   );
+                  document.location.href = 'http://127.0.0.1:5500/pato-master/admin.html'
                 }
               });
               ///---------------------
@@ -219,7 +224,14 @@ $(document).ready(function () {
 ////profile info
 
 $(document).ready(function () {
-    console.log(sessionStorage.getItem('user'))
+    function renderProfile(admin){
+        $('#admin_profile_username').text(admin.Ten_Dang_nhap);
+        $('#admin_profile_email').text(admin.Ten_Dang_nhap);
+        $('#username').val(admin.Ten_Dang_nhap);
+        $('#password').val(admin.Mat_khau);
+        $('#name').val(admin.Ten)
+        $('#phone').val(admin.Sdt)
+    }
     var admin = JSON.parse(sessionStorage.getItem('user'))
     console.log(admin.Ten_Dang_nhap)
     $('.profile_info').text(admin.Ten_Dang_nhap);
@@ -228,12 +240,7 @@ $(document).ready(function () {
         sessionStorage.clear();
         document.location.href = "http://127.0.0.1:5500/pato-master/index.html"
     });
-    $('#admin_profile_username').text(admin.Ten_Dang_nhap);
-    $('#admin_profile_email').text(admin.Ten_Dang_nhap);
-    $('#username').val(admin.Ten_Dang_nhap);
-    $('#password').val(admin.Mat_khau);
-    $('#name').val(admin.Ten)
-    $('#phone').val(admin.Sdt)
+    renderProfile(admin)
     $('.btn_profile_update').click(function (e) { 
         e.preventDefault();
         var user = {
@@ -251,8 +258,91 @@ $(document).ready(function () {
             success: function (response) {
                 console.log(response)
                 sessionStorage.setItem('user',JSON.stringify(user))
-                console.log(sessionStorage.getItem('user'))
+                renderProfile(user)
             }
         });
     });
+});
+
+////order /////////
+
+$(document).ready( function () {
+        function renderOrders(orders){
+            return orders.map(function(item){
+                return ` <tr class="table_row">
+                <td class="table_col" id="order_info_${item._id}">${item.name}</td>
+                <td class="table_col">${item.phone}</td>
+                <td class="table_col">${item.email}</td>
+                <td class="table_col">${item.date}</td>
+                <td class="table_col">
+                  <i
+                    class="fas fa-info-circle col_icon btn_open_modal_order_info"
+                    id="btn_open_modal_order_info_${item._id}"
+                    data='${JSON.stringify(item)}'
+                  ></i>
+                </td>
+                <td class="table_col">
+                  <i
+                    class="fas fa-remove col_icon btn_open_remove_dinalog"
+                    id="btn_open_remove_dinalog_${item._id}"
+                    data='${item._id}'
+                  ></i>
+                </td>
+              </tr>`
+            })
+        }
+        var orders = []
+        $.ajax({
+            type: "GET",
+            url: "http://localhost:8080/dsDanhSachDatBan",
+            success: function (response) {
+                orders = response
+                $('#table_order').html(renderOrders(orders));
+                $('.btn_open_modal_order_info').each(function (index, element) {
+                    $(element).click(function (e) { 
+                        e.preventDefault();
+                        $('#order_info_modal').css('display','block');
+                        user_order = JSON.parse($(element).attr('data'));
+                        $('.order_heading').text(user_order.name+"'s Order");
+                        $('.order_name').text(user_order.name);
+                        $('.order_email').text(user_order.email);
+                        $('.order_phone').text(user_order.phone);
+                        $('.order_date').text(user_order.date);
+                        $('.order_time').text(user_order.time);
+                        $('.order_people').text(user_order.people);
+                        $('.order_pay').text(user_order.pay);
+                        $('.order_foods').text(user_order.arrayFood.length !==0 ? user_order.arrayFood.map(function(item){
+                            return item.Ten
+                        }):'None');
+                    });
+                });
+                $('.btn_open_remove_dinalog').each(function (index, element) {
+                    $(element).click(function (e) { 
+                        e.preventDefault();
+                        $('#order_dinalog_remove').css('display','block');
+                        $('#apply_remove_order').attr('data',$(element).attr('data'));
+                    });
+                });
+                $('#apply_remove_order').click(function (e) { 
+                    e.preventDefault();
+                    var id_order = $(this).attr('data')
+                    $.ajax({
+                        type: "POST",
+                        url: "http://localhost:8080/XoaDatBan",
+                        data: JSON.stringify(id_order),
+                        dataType: "json",
+                        success: function (response) {
+                            console.log(response)
+                            $('#order_dinalog_remove').css('display','none');
+                            var new_orders = orders.filter(function(item){
+                                return item._id !== id_order
+                            })
+                            renderOrders(new_orders)
+                        }
+                    });
+                });
+            }
+        });
+    
+    
 });

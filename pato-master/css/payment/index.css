@@ -21,6 +21,8 @@
 }
 .payment_content_item{
     margin: 10px 0;
+    display: flex;
+    align-items: center;
 }
 .payment_title{
     min-width: 200px;

@@ -523,15 +523,21 @@
         </div>
         <div class="payment_content_item">
           <label for="card_name" class="payment_title">Card_name</label>
-          <input class="payment_inp" type="text" name="card_name" id="payment_card_name" placeholder="Type your name of card">
+          <div class="w-100">
+            <input class="payment_inp" type="text" name="card_name" id="payment_card_name" placeholder="Type your name of card">
+          <div id="card_name_nofication" class="text-danger"></div>
+          </div>
         </div>
         <div class="payment_content_item">
           <label for="card_number" class="payment_title">Card_number</label>
-          <input class="payment_inp" type="text" name="card_number" id="payment_card_number" placeholder="Type your number of card">
+          <div class="w-100">
+            <input class="payment_inp" type="text" name="card_number" id="payment_card_number" placeholder="Type your number of card">
+          <div id="card_number_nofication" class="text-danger"></div>
+          </div>
         </div>
         <div class="payment_content_item">
           <label for="" class="payment_title">Your food order</label>
-          <div id="payment_food_list">
+          <div id="payment_food_list" class="text-danger">
             
           </div>
         </div>
@@ -542,6 +548,7 @@
         <div class="payment_controls">
           <button class="btn_primary" id="btn_pay_payment">Pay</button>
           <button class="btn_primary_red" id="btn_exit_payment">Cancel</button>
+          <span id="payment_nofication" class="text-info"></span>
         </div>
       </div>
     </div>
